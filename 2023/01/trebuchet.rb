@@ -25,8 +25,6 @@ def sub_number(line)
     .select { |match| !match[:index].nil? }
     .max_by { |match| match[:index] }
 
-  puts({ line:, leftmost:, rightmost: })
-
   left_digit = if leftmost[:key].is_a?(String)
                  number_to_digit[leftmost[:key]]
                else
@@ -43,9 +41,6 @@ def sub_number(line)
 end
 
 File.read("input.txt").lines.map do |line|
-  calibration = sub_number(line)
-  puts({ calibration: })
-
-  calibration
+  sub_number(line)
 end
   .sum
